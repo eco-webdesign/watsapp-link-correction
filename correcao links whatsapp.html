@@ -1,0 +1,29 @@
+<!-- CORREÇÃO LINK WHATSAPP -->
+<script>
+    $(document).ready(function () {
+
+        // pega a largura da tela
+        var screenWidth = window.innerWidth;
+
+        // para quando a resolução for mobile
+        if (screenWidth >= 991) {
+
+            // pega todos os links expecificados como links de whatsapp
+            var whatsLink = document.querySelectorAll(".whats-link");
+
+            // para cada link pego
+            whatsLink.forEach(link => {
+
+                var linkHref = link.href,
+                    hrefSplit = '';
+
+                hrefSplit = linkHref.split(".");
+
+                link.setAttribute("href", "https://web." + hrefSplit[1] + "." + hrefSplit[2]);
+
+                link.setAttribute("target", "_blank");
+            });
+        }
+
+    });
+</script>
